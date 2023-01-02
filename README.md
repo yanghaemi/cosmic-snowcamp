@@ -1,2 +1,3 @@
 COSMIC 눈송이캠프 2023 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc1f922b-2ef9-4469-9fc0-1ef8145f8df9/Untitled.png)
+
+![montly](https://user-images.githubusercontent.com/47660152/210194384-5f34d079-b373-4394-b7e7-805c66626d46.png)
