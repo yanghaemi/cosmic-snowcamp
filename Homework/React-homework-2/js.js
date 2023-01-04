@@ -2,16 +2,17 @@ let addToDo = document.getElementById('addToDo');
 let inputBox = document.getElementById('inputField');
 let toDoList = document.getElementById('toDoList');
 
+
 addToDo.addEventListener('click', function(){
 
-    let colorChange =document.getElementsByName('color');
-
+    let colorChange = document.getElementsByName('color');
     console.log(colorChange);
 
     var list = document.createElement('div');
+    var listDate = document.createElement('div');
     var listContent = document.createElement('div');
     var removeBtn = document.createElement('button');
-    var listDate = document.createElement('div');
+    
     if(!inputBox.value) alert("내용을 입력해 주세요");
     else{
         listContent.innerText=inputBox.value;   //입력
@@ -21,11 +22,11 @@ addToDo.addEventListener('click', function(){
         removeBtn.innerText="삭제";
         removeBtn.style.color="white";
 
-        if(colorChange.value === "pink"){
+        if(colorChange[0].checked == true & colorChange[0].value == 'pink'){
             listDate.style.backgroundColor="pink";
         }
-        else if(colorChange.value === "black"){
-            listDate.style.backgroundColor="black";
+        else if(colorChange[1].checked == true & colorChange[1].value == 'black'){
+            listDate.style.backgroundColor="#aaa";
         }
         
         toDoList.appendChild(list); //할 일 리스트창에 자식으로 붙이기
