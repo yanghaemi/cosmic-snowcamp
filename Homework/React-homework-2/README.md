@@ -1,3 +1,4 @@
 COSMIC 눈송이캠프 2023
 
-- React homework
+과제2
+메모장 만들기

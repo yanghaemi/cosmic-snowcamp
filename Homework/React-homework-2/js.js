@@ -17,10 +17,18 @@ addToDo.addEventListener('click', function(){
     else{
         listContent.innerText=inputBox.value;   //입력
         listDate.innerText=Date();
-        removeBtn.style.backgroundColor="blue";
+        toDoList.style.width="100%";
+        list.style.width="100%";
         toDoList.style.padding="10px";
+        listDate.style.padding="6px";
+        listContent.style.padding="10px";
+        listDate.style.borderRadius="5px 5px 0 0";
         removeBtn.innerText="삭제";
-        removeBtn.style.color="white";
+        removeBtn.style='color:white';
+        removeBtn.style.backgroundColor="#2E9AFE";
+        removeBtn.style.float="right";
+        removeBtn.style.borderRadius="5px";
+        removeBtn.style.border="none";
 
         if(colorChange[0].checked == true & colorChange[0].value == 'pink'){
             listDate.style.backgroundColor="pink";
