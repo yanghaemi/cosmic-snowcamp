@@ -8,6 +8,7 @@ addToDo.addEventListener('click', function(){
 
     console.log(colorChange);
 
+    var list = document.createElement('div');
     var listContent = document.createElement('div');
     var removeBtn = document.createElement('button');
     var listDate = document.createElement('div');
@@ -34,8 +35,9 @@ addToDo.addEventListener('click', function(){
         
         removeBtn.addEventListener('click', function(){
             removeBtn.parentNode.removeChild(removeBtn);
-            list.parentNode.removeChild(list);
+            listContent.parentNode.removeChild(listContent);
             listDate.parentNode.removeChild(listDate);
+            list.parentNode.removeChild(list);
         })
         inputBox.value="";          //할 일 입력창 초기화
     }
