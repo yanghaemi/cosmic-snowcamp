@@ -33,7 +33,7 @@ addToDo.addEventListener('click', function(){
         if(colorChange[0].checked == true & colorChange[0].value == 'pink'){
             listDate.style.backgroundColor="pink";
         }
-        else if(colorChange[1].checked == true & colorChange[1].value == 'black'){
+        else if(colorChange[1].checked == true & colorChange[1].value == 'grey'){
             listDate.style.backgroundColor="#aaa";
         }
         
