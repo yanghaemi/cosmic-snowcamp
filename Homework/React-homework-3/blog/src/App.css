@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header{
+   float: left;
+   width: 100%;
+   display: flex;
+   position:inherit;
+   flex-direction: row;
+   background: #e4e4e46b;
+   color: rgb(86, 86, 86);
+}
+
+div{
+  box-sizing: border-box;
+}
+
+.name{
+  display: block;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 34px;
+  padding-right: 170px;
+}
+
+.job{
+  color: #959595;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.num{
+  color: #959595;
+  font-size: 12px;
+  padding: 22px 200px 0 0;
+}
+
+.count{
+  color: #959595;
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: -2px;
+}
+
+.profile{
+  display: block;
+  text-align: left;
+  margin: 0 auto 94px;
+  padding:105px 0 0;
+  position: relative;
+  width:700px;
+}
+
+.list{
+  float: left;
+  border-bottom: 1px solid grey;
+  padding-left: 20px;
+  text-align: left;
+
+}
+
+.menu-bnt{
+  width: 50px;
+  height: 50px;
+  font-size:larger;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.search-bnt{
+  width: 50px;
+  height: 50px;
+  font-size:larger;
+  float: right;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
