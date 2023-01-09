@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+.mg-5{
+  margin-right: 30px;
+}
+
+.posting{
+  position: inherit;
+}
+
 .header{
    float: left;
    width: 100%;
@@ -21,6 +29,16 @@ div{
   box-sizing: border-box;
 }
 
+img{
+  width: 320px;
+  height: 320px;
+}
+
+.profileImg{
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+}
 .name{
   display: block;
   font-size: 28px;
@@ -52,10 +70,10 @@ div{
 .profile{
   display: block;
   text-align: left;
-  margin: 0 auto 94px;
   padding:105px 0 0;
   position: relative;
   width:700px;
+  margin-bottom: 40px;
 }
 
 .list{

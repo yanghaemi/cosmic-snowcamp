@@ -10,14 +10,14 @@ function App() {
   let [modal, setModal] = useState(false);
   let [title,setTitle]= useState(0);
   let [입력값, 입력값변경] = useState('');
-  let [post, setPost] = useState(false);
 
 
   return (
     <div className="App">
       <div className="black-nav">
         <h4>블로그</h4>
-      </div><button onClick={()=>{
+      </div>
+      <button onClick={()=>{
         let copy=[...글제목];
         copy.sort();
         글제목변경(copy);
@@ -27,7 +27,8 @@ function App() {
         글제목.map(function(a, i){   //파라미터가 array안에 있던 데이터다, 2번째 파라미터는 0부터 1씩 증가하는 정수
           return <div className='list'>
           <h4 onClick={()=>{setModal(true); setTitle(i)}}>{ 글제목[i] }
-            <span onClick={(e)=>{ e.stopPropagation();
+            <span onClick={(e)=>{ 
+              e.stopPropagation();
               let copy=[...따봉];
               copy[i]+=1;
               따봉변경(copy)}}> 🫰 </span>{따봉[i]}
@@ -40,6 +41,11 @@ function App() {
           글제목변경(copy);
         }}> 뭉 </span>
           <p>2월 17일 발행</p>
+          <button onClick={()=>{
+            let copy = [...글제목];
+            copy.splice(i, 1);
+            글제목변경(copy);
+          }}>삭제</button>
         </div>
         })
       }
@@ -49,40 +55,35 @@ function App() {
         console.log(입력값)
         }}/>
       <button onClick={(e)=>{
-        setPost(true);
-      }}>저장</button>
+        let copy = [...글제목];
+        copy.unshift(입력값);
+        글제목변경(copy);
 
-      {
-        post == true ? <Post 입력값={입력값} />:null
-      }
+        let copygood = [...따봉];
+        copygood.unshift(0);
+        따봉변경(copygood);
+
+        console.log(글제목);
+      }}>저장</button>
 
       {
         modal == true ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목} /> : null
       }
-
     </div>
   );
 }
 
 //모든 변수는 함수 탈출 불가 그래서 props함.
 
-function Post(props){
-  return(
-    <div>
-      <p>{props.입력값}</p>
-    </div>
-  );
-}
 
 function Modal(props){     //Modal == 컴포넌트
   return(
-    <div className="modal" style={{background : "yellow"}}>
+    <div className="modal">
         <h4>{props.글제목[props.title]}</h4>
         <p>날짜</p>
         <p>상세 내용</p>
-        <button onClick={()=>{ 
+        <button onClick={()=>{
           props.글제목변경(['nct 재민', 'nct 마크', 'nct 제노']);
-          
           }}>글수정</button>
       </div>
   )
