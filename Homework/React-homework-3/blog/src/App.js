@@ -5,12 +5,11 @@ import Menu from "./component/Menu";
 import Profile from "./component/Profile";
 import Articles from "./component/Articles";
 import Header from "./component/Header";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 const loadData = () => {
-  return ["해미", "영은", "현지", "재식"];
+  return ["해미", "dd", "aaa", "ff식"];
 };
 
 const App = () => {

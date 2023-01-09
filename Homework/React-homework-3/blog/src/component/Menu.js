@@ -3,32 +3,41 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
 const Menu = (props) => {
-  let [btnColor1, setBtnColor1] = useState("primary");
-  let [btnColor2, setBtnColor2] = useState("primary");
-  let [btnColor3, setBtnColor3] = useState("primary");
+  let [btnColor1, setBtnColor1] = useState(["danger", "primary", "primary"]);
 
-  function setBtn1() {
-    let copy = "danger";
+  function setBtn(index) {
+    let copy = ["primary", "primary", "primary"];
+    copy[index] = "danger";
     setBtnColor1(copy);
-  }
-  function setBtn2() {
-    let copy = "danger";
-    setBtnColor2(copy);
-  }
-  function setBtn3() {
-    let copy = "danger";
-    setBtnColor3(copy);
   }
 
   return (
     <>
-      <Button onClick={setBtn1} variant={btnColor1} className="mg-5">
+      <Button
+        onClick={() => {
+          setBtn(0);
+        }}
+        variant={btnColor1[0]}
+        className="mg-5"
+      >
         작가 소개
       </Button>
-      <Button onClick={setBtn2} variant={btnColor2} className="mg-5">
+      <Button
+        onClick={() => {
+          setBtn(1);
+        }}
+        variant={btnColor1[1]}
+        className="mg-5"
+      >
         글
       </Button>
-      <Button onClick={setBtn3} variant={btnColor3} className="mg-5">
+      <Button
+        onClick={() => {
+          setBtn(2);
+        }}
+        variant={btnColor1[2]}
+        className="mg-5"
+      >
         작품
       </Button>
     </>
