@@ -1,62 +1,97 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Menu from "./component/Menu";
 import Profile from "./component/Profile";
 import Articles from "./component/Articles";
 import Header from "./component/Header";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-const loadData = () => {
-  return ["해미", "dd", "aaa", "ff식"];
+import NotFound from "./component/NotFound";
+import React from "react";
+
+const user = {
+  name: "양해미",
+  job: "아이돌",
+  followerNum: 127,
+  followingNum: 825,
+  tagList: ["해미", "dd", "aaa", "ff식"],
+  introduce: "ㅎㅎ",
+  webSite: "https://www.youtube.com/watch?v=8do-DV3G7Zs",
+  ImgPath:
+    "https://images.mypetlife.co.kr/content/uploads/2019/05/09153922/adorable-animal-animal-photography-225406-scaled.jpg",
 };
 
-const App = () => {
-  let name = "양해미",
-    job = "아이돌",
-    followerNum = 127,
-    tagList = loadData();
-
-  let imgPost = [
+const items = [
+  {
+    src: "https://brunch.co.kr/@dailynews/1248",
+    imgSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsoxSWPBG6kJuATQ51SUYe4igL0rIO9I29jw&usqp=CAU",
+    title: "고양이 놀아주는 법",
+    preview: "집사의 도리",
+    createDate: "2023-06-06",
+  },
+  {
+    src: "https://www.fitpetmall.com/blog/cat-best-snack/",
+    imgSrc:
       "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800",
-      "https://t1.daumcdn.net/cfile/tistory/2105083B594D065C39",
+    title: "고양이 간식 추천",
+    preview: "집사의 도리 2",
+    createDate: "2023-08-02",
+  },
+  {
+    src: "https://www.youtube.com/watch?v=G_WI2LlFaFk",
+    imgSrc: "https://t1.daumcdn.net/cfile/tistory/2105083B594D065C39",
+    title: "사모예드",
+    preview: "강아지",
+    createDate: "2000-04-23",
+  },
+  {
+    src: "https://www.youtube.com/watch?v=G_WI2LlFaFk",
+    imgSrc:
       "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2022/12/02/54e29ff8-8079-4c50-84ca-822227161bbc.jpg",
-    ],
-    title = [
-      "고양이 놀아주는 법",
-      "고양이 간식 추천",
-      "사모예드",
-      "NCT-DREAM 캔디",
-    ];
+    title: "NCT-DREAM 캔디",
+    preview: "좋아요",
+    createDate: "2003-01-05",
+  },
+];
 
+const App = () => {
   return (
-    <div>
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col md="auto">
-            <Header
-              name={name}
-              job={job}
-              followerNum={followerNum}
-              followingNum={825}
-              profileImg={
-                "https://images.mypetlife.co.kr/content/uploads/2019/05/09153922/adorable-animal-animal-photography-225406-scaled.jpg"
-              }
-            ></Header>
-            <Menu></Menu>
-            {/* Body */}
-            <Profile
-              introduce={"부자"}
-              webSite={"https://facebook.com/javajigi"}
-              tagList={tagList}
-            ></Profile>
-            <Articles imgPost={imgPost} title={title}></Articles>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <>
+      <Header
+        name={user.name}
+        job={user.job}
+        followerNum={user.followerNum}
+        followingNum={user.followingNum}
+        profileImg={user.ImgPath}
+      ></Header>
+
+      <BrowserRouter>
+        <div className="App">
+          <Menu></Menu>
+        </div>
+        <Routes>
+          <Route
+            path="/Profile/"
+            element={
+              <Profile
+                introduce={user.introduce}
+                webSite={user.webSite}
+                tagList={user.tagList}
+              />
+            }
+          ></Route>
+          <Route
+            path="/Articles/"
+            element={
+              <div className="posting">
+                <Articles items={items} />
+              </div>
+            }
+          ></Route>
+          <Route path="/Articles/" element={<Articles items={items} />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

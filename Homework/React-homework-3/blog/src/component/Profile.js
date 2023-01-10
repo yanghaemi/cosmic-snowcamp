@@ -1,14 +1,13 @@
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
 
 const Profile = (props) => {
   let tagList = props.tagList;
   let tags = tagList.map((tag, i) => {
-    return <Tag tagName={tag}></Tag>;
+    return <Tag tagName={tag} tagNum={i}></Tag>;
   });
   return (
-    <div>
+    <div className="posting prof">
       <p>소개</p>
       <p>{props.introduce}</p>
       {tags}

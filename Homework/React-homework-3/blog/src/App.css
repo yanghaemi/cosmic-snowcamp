@@ -8,11 +8,37 @@
 }
 
 .mg-5{
-  margin-right: 30px;
+  margin-right: px;
+  width: 250px;
+}
+
+.item{
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .posting{
-  position: inherit;
+  display: flex;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70px;
+  width: 700px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.prof{
+  display: block;
+}
+
+.textColor{
+  color: black;
+  text-decoration-line: none;
+}
+
+.titlePost{
+  margin-top: 5px;
+  text-align: left;
 }
 
 .header{
@@ -73,7 +99,7 @@ img{
   padding:105px 0 0;
   position: relative;
   width:700px;
-  margin-bottom: 40px;
+  margin: 0 auto 94px;
 }
 
 .list{
