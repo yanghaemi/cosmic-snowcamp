@@ -16,6 +16,8 @@ const Menu = (props) => {
     setBtnColor1(copy);
   }
 
+  let postNum = props.items;
+
   return (
     <div>
       <Link to="/Profile">
@@ -37,7 +39,7 @@ const Menu = (props) => {
           variant={btnColor1[1]}
           className="mg-5"
         >
-          글
+          글{postNum.length}
         </Button>
       </Link>
       <Link to="/Articles">
@@ -48,7 +50,7 @@ const Menu = (props) => {
           variant={btnColor1[2]}
           className="mg-5"
         >
-          작품
+          작품{postNum.length}
         </Button>
       </Link>
     </div>

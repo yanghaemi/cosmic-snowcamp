@@ -21,6 +21,7 @@ const user = {
 
 const items = [
   {
+    id: 0,
     src: "https://brunch.co.kr/@dailynews/1248",
     imgSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsoxSWPBG6kJuATQ51SUYe4igL0rIO9I29jw&usqp=CAU",
@@ -29,6 +30,7 @@ const items = [
     createDate: "2023-06-06",
   },
   {
+    id: 1,
     src: "https://www.fitpetmall.com/blog/cat-best-snack/",
     imgSrc:
       "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152%EF%BC%8D2.jpg?type=w800",
@@ -37,6 +39,7 @@ const items = [
     createDate: "2023-08-02",
   },
   {
+    id: 2,
     src: "https://www.youtube.com/watch?v=G_WI2LlFaFk",
     imgSrc: "https://t1.daumcdn.net/cfile/tistory/2105083B594D065C39",
     title: "사모예드",
@@ -44,6 +47,7 @@ const items = [
     createDate: "2000-04-23",
   },
   {
+    id: 3,
     src: "https://www.youtube.com/watch?v=G_WI2LlFaFk",
     imgSrc:
       "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2022/12/02/54e29ff8-8079-4c50-84ca-822227161bbc.jpg",
@@ -66,9 +70,19 @@ const App = () => {
 
       <BrowserRouter>
         <div className="App">
-          <Menu></Menu>
+          <Menu items={items}></Menu>
         </div>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <Profile
+                introduce={user.introduce}
+                webSite={user.webSite}
+                tagList={user.tagList}
+              />
+            }
+          />
           <Route
             path="/Profile/"
             element={
@@ -88,7 +102,7 @@ const App = () => {
             }
           ></Route>
           <Route path="/Articles/" element={<Articles items={items} />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </>

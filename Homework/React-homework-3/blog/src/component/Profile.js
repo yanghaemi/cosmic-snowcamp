@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Profile = (props) => {
   let tagList = props.tagList;
   let tags = tagList.map((tag, i) => {
-    return <Tag tagName={tag} tagNum={i}></Tag>;
+    return <Tag tagName={tag}></Tag>;
   });
   return (
     <div className="posting prof">
