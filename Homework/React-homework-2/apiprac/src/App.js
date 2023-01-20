@@ -4,16 +4,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Data from "./Component/Data";
 import SearchBar from "./Component/SearchBar";
-import Header from "./Component/Header";
 
 const App = () => {
-  const food_baseURL = `http://openapi.foodsafetykorea.go.kr/api/sample/I2790/xml/1/5`;
+  let [text, setText] = useState("");
+  let [data, setData] = useState([]);
+  const URL =
+    "http://openapi.foodsafetykorea.go.kr/api/11e17506cbc840b29b83/I2790/json/1/10/DESC_KOR=" +
+    text;
 
   return (
     <>
-      <Header></Header>
-      <SearchBar></SearchBar>
-      <Data food_baseURL={food_baseURL} />
+      <SearchBar
+        URL={URL}
+        text={text}
+        setText={setText}
+        data={data}
+        setData={setData}
+      ></SearchBar>
     </>
   );
 };

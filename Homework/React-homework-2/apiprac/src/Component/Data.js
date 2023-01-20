@@ -6,7 +6,7 @@ const Data = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const food_baseURL = props.food_baseURL;
+  const URL = props.URL;
 
   useEffect((props) => {
     const fetchUsers = async () => {
@@ -14,7 +14,7 @@ const Data = (props) => {
         setError(null);
         setData(null);
         setLoading(true);
-        const response = await axios.get(props.food_baseURL);
+        const response = await axios.get(props.URL);
         setData(response.data);
       } catch (e) {
         setError(e);
@@ -28,15 +28,7 @@ const Data = (props) => {
   if (error) return <div>에러가 발생했습니다</div>;
   if (!data) return null;
 
-  return (
-    <ul>
-      {data.map((user) => (
-        <li key={user.id}>
-          {user.username} ({user.name})
-        </li>
-      ))}
-    </ul>
-  );
+  return <ul></ul>;
 };
 
 export default Data;

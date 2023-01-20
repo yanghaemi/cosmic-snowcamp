@@ -12,6 +12,47 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.smallFont{
+  font-size: small;
+  color:rgb(60, 60, 60);
+  display: block;
+}
+
+.hover:hover{
+  background-color: rgba(130, 130, 130, 0.368);
+  cursor: pointer;
+}
+
+.hover{
+  font-size: large;
+  display:inline-block;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 15px;
+
+}
+
+.searchBar{
+  margin: 5px;
+  padding: 20px 20px 0px 20px;
+}
+
+.info{
+  border-top-color: gray;
+  margin: 5px;
+  padding: 20px;
+}
+
+.resultLength{
+  margin: 5px;
+  padding : 0px 20px 20px 20px;
+}
+
+.status{
+  width: 100%;
+  margin: 0 auto 105px;
+  font-size: large;
+}
 
 .App-header {
   background-color: #282c34;
