@@ -2,6 +2,7 @@ import "../App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import PieChartComponent from "./PieChartComponent";
 
 function SearchBar(props) {
   const [loading, setLoading] = useState(false);
@@ -28,9 +29,6 @@ function SearchBar(props) {
     setLoading(false);
   };
 
-  // if (loading) return <div className="status">검색 중입니다.</div>;
-  // if (error) return <div className="status">에러가 발생했습니다</div>;
-  // if (!props.data) return <div>아무 것도 없습니다</div>;
   return (
     <>
       <div className="searchBar">
@@ -71,7 +69,9 @@ function SearchBar(props) {
           </>
         );
       })}
-      {status == true ? <FoodInfo food={food}></FoodInfo> : null}
+      {status == true ? (
+        <PieChartComponent food={food}></PieChartComponent>
+      ) : null}
     </>
   );
 }
@@ -84,20 +84,6 @@ const Status = (props) => {
   if (props.loading) return <div className="status">검색 중입니다.</div>;
   if (props.error) return <div className="status">에러가 발생했습니다</div>;
   if (props.data == undefined) return <div>아무 것도 없습니다</div>;
-};
-
-const FoodInfo = (props) => {
-  console.log(props.food);
-  return (
-    <div className="info">
-      <h1>식품 이름 : {props.food.DESC_KOR}</h1>
-      <p>총열량 : {props.food.NUTR_CONT1}</p>
-      <p>탄수화물 : {props.food.NUTR_CONT2}</p>
-      <p>지방 : {props.food.NUTR_CONT4}</p>
-      <p>단백질 : {props.food.NUTR_CONT3}</p>
-      <p>당류 : {props.food.NUTR_CONT5}</p>
-    </div>
-  );
 };
 
 export default SearchBar;
