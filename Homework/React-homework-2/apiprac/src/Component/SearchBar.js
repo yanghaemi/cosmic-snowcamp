@@ -23,6 +23,7 @@ function SearchBar(props) {
       const res = await axios.get(props.URL);
       console.log(res.data.I2790.row);
       props.setData(res.data.I2790.row);
+      console.log(props.data);
     } catch (e) {
       console.log(e);
     }
@@ -43,7 +44,7 @@ function SearchBar(props) {
           onClick={() => {
             getData();
             onReset();
-            console.log(props.URL);
+            console.log(props.data);
           }}
         >
           search
@@ -59,18 +60,26 @@ function SearchBar(props) {
               onClick={() => {
                 setStatus(true);
                 setFood(a);
+                food = a;
+                console.log(food);
+                console.log(a);
               }}
             >
-              {a.DESC_KOR}
-
-              <div className="smallFont">{a.MAKER_NAME}</div>
-              <div className="smallFont">{a.GROUP_NAME}</div>
+              <Link to={`/${a.FOOD_CD}`}>
+                {a.DESC_KOR}
+                <div className="smallFont">{a.MAKER_NAME}</div>
+                <div className="smallFont">{a.GROUP_NAME}</div>
+              </Link>
             </div>
           </>
         );
       })}
       {status == true ? (
-        <PieChartComponent food={food}></PieChartComponent>
+        <BrowserRouter>
+          <Routes>
+            <Route path={`/${food.FOOD_CD}`} element={<div>hello</div>} />
+          </Routes>
+        </BrowserRouter>
       ) : null}
     </>
   );

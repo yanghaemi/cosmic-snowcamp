@@ -10,10 +10,10 @@ import {
 
 const PieChartComponent = (props) => {
   const data = [
-    { name: "탄수화물", value: props.food.NUTR_CONT2 },
-    { name: "단백질", value: props.food.NUTR_CONT3 },
-    { name: "지방", value: props.food.NUTR_CONT4 },
-    { name: "당류", value: props.food.NUTR_CONT5 },
+    { name: "탄수화물", value: parseInt(props.food.NUTR_CONT2) },
+    { name: "단백질", value: parseInt(props.food.NUTR_CONT3) },
+    { name: "지방", value: parseInt(props.food.NUTR_CONT4) },
+    { name: "당류", value: parseInt(props.food.NUTR_CONT5) },
   ];
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
