@@ -57,10 +57,7 @@ const PieChartComponent = (props) => {
               height={400}
               className="text-center"
             >
-              <PieChart
-                width={props.food.NUTR_CONT1}
-                height={props.food.NUTR_CONT1}
-              >
+              <PieChart width="400" height="400">
                 <Legend layout="vertical" verticalAlign="top" align="top" />
                 <Pie
                   data={data}

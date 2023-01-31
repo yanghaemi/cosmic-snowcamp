@@ -1,7 +1,7 @@
 import "../App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PieChartComponent from "./PieChartComponent";
 
 function SearchBar(props) {
@@ -9,6 +9,14 @@ function SearchBar(props) {
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(false);
   const [food, setFood] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`${props.text}/${index}`);
+    console.log(props.text);
+  }, [index, props.text]);
 
   const onReset = () => {
     props.setText("");
@@ -23,7 +31,6 @@ function SearchBar(props) {
       const res = await axios.get(props.URL);
       console.log(res.data.I2790.row);
       props.setData(res.data.I2790.row);
-      console.log(props.data);
     } catch (e) {
       console.log(e);
     }
@@ -43,8 +50,7 @@ function SearchBar(props) {
         <button
           onClick={() => {
             getData();
-            onReset();
-            console.log(props.data);
+            // onReset();
           }}
         >
           search
@@ -60,26 +66,19 @@ function SearchBar(props) {
               onClick={() => {
                 setStatus(true);
                 setFood(a);
-                food = a;
-                console.log(food);
-                console.log(a);
+                setIndex(i + 1);
               }}
             >
-              <Link to={`/${a.FOOD_CD}`}>
-                {a.DESC_KOR}
-                <div className="smallFont">{a.MAKER_NAME}</div>
-                <div className="smallFont">{a.GROUP_NAME}</div>
-              </Link>
+              {a.DESC_KOR}
+              <div className="smallFont">{a.MAKER_NAME}</div>
+              <div className="smallFont">{a.GROUP_NAME}</div>
             </div>
           </>
         );
       })}
+
       {status == true ? (
-        <BrowserRouter>
-          <Routes>
-            <Route path={`/${food.FOOD_CD}`} element={<div>hello</div>} />
-          </Routes>
-        </BrowserRouter>
+        <PieChartComponent food={food}></PieChartComponent>
       ) : null}
     </>
   );

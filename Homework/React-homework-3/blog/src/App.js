@@ -82,16 +82,6 @@ const App = () => {
                 tagList={user.tagList}
               />
             }
-          />
-          <Route
-            path="/Profile/"
-            element={
-              <Profile
-                introduce={user.introduce}
-                webSite={user.webSite}
-                tagList={user.tagList}
-              />
-            }
           ></Route>
           <Route
             path="/Articles/"
