@@ -15,8 +15,7 @@ function SearchBar(props) {
 
   useEffect(() => {
     navigate(`${props.text}/${index}`);
-    console.log(props.text);
-  }, [index, props.text]);
+  }, [index]);
 
   const onReset = () => {
     props.setText("");
